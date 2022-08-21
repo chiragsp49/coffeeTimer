@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" defer></script>
+    <title>Coffee Timer</title>
+</head>
+<body>
+    <section>
+        <div class="container mx-auto bg-black h-screen relative">
+            <img src="https://images.unsplash.com/photo-1610632380989-680fe40816c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt="" class="max-w-md mx-auto max-h-fit">
+            <div class="text-white flex flex-col items-center justify-center top-0 absolute mt-24 w-full font-sans">
+                <h2 class="text-3xl">Coding Time</h2>
+                <p class="text-2xl"><span id="minutes">25</span>:<span id="seconds">00</span></p>
+                <div class="flex flex-row mt-4 items-center justify-between space-x-4">
+                    <div class="items-center mx-3 bg-gray-50 p-3 rounded-lg border-2 border-red-600 hover:bg-slate-400 cursor-pointer">
+                        <img src="images/play-svgrepo-com.svg" alt="" class="w-5 h-5" id="play">
+                    </div>
+                    <div class="items-center mx-3 bg-gray-50 p-3 rounded-lg border-2 border-red-600 hover:bg-slate-400 cursor-pointer">
+                        <img src="images/reset-svgrepo-com.svg" alt="" class="w-5 h-5" id="reset">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
