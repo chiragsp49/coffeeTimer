@@ -13,8 +13,6 @@ var interval;
 play.addEventListener('click' , () => {
     //alert("play");
     interval = setInterval(startTimer,1000);
-    play.
-
 });
 
 reset.addEventListener( 'click' , ()=> {
