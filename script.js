@@ -13,6 +13,7 @@ var interval;
 play.addEventListener('click' , () => {
     //alert("play");
     interval = setInterval(startTimer,1000);
+    play.
 
 });
 
@@ -32,7 +33,7 @@ function startTimer(){
     var countDown = nowPlus25mins - now;
     var minutesVal = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
     var secondsVal = Math.floor((countDown % (1000 * 60)) / 1000);
-    if(secondsVal ==  0){
+    if((minutesVal == 0)  && (secondsVal ==  0)){
         var countDown = nowPlus25mins - now;
         clearInterval(interval);
         alert("Take a break!");
