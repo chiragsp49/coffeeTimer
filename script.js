@@ -6,11 +6,11 @@ const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
 
 var interval;
-var nowPlus25mins = addMinutes(new Date(),1);
+var nowPlus25mins = addMinutes(new Date(),25);
 
 
 play.addEventListener('click' , () => {
-    nowPlus25mins = addMinutes(new Date(),1);
+    nowPlus25mins = addMinutes(new Date(),25);
     interval = setInterval(startTimer,1000);
 });
 
@@ -40,7 +40,7 @@ function startTimer(){
 
 function resetCountDownTime(){
     var now = new Date().getTime();
-    nowPlus25mins = addMinutes(new Date(),1);
+    nowPlus25mins = addMinutes(new Date(),25);
     var countDown = nowPlus25mins - now;
     return countDown;
 }
