@@ -5,21 +5,22 @@ const reset = document.getElementById("reset");
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
 
-
-var nowPlus25mins = addMinutes(new Date(),25);
 var interval;
+var nowPlus25mins = addMinutes(new Date(),1);
 
 
 play.addEventListener('click' , () => {
-    //alert("play");
+    nowPlus25mins = addMinutes(new Date(),1);
     interval = setInterval(startTimer,1000);
 });
 
 reset.addEventListener( 'click' , ()=> {
-    clearInterval(interval);   
-    nowPlus25mins = addMinutes(new Date(),25);
-    minutes.innerHTML =  25;
-    seconds.innerHTML =  "00";
+    if(interval!=undefined){
+        clearInterval(interval);
+    }
+    var countDown = resetCountDownTime();
+    displayTime(countDown);
+
 });
 
 function addMinutes(date, minutes) {
@@ -27,18 +28,40 @@ function addMinutes(date, minutes) {
 }
 
 function startTimer(){
-    var now = new Date().getTime();
-    var countDown = nowPlus25mins - now;
+    var countDown = countDownTime();
     var minutesVal = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
     var secondsVal = Math.floor((countDown % (1000 * 60)) / 1000);
+    displayTime(countDown);
     if((minutesVal == 0)  && (secondsVal ==  0)){
-        var countDown = nowPlus25mins - now;
         clearInterval(interval);
         alert("Take a break!");
     }
-    minutes.innerHTML =  minutesVal;
-    if(secondsVal.length < 2){
-        secondsVal = 0+secondsVal;
+}
+
+function resetCountDownTime(){
+    var now = new Date().getTime();
+    nowPlus25mins = addMinutes(new Date(),1);
+    var countDown = nowPlus25mins - now;
+    return countDown;
+}
+
+function countDownTime(){
+    var now = new Date().getTime();
+    var countDown = nowPlus25mins - now;
+    return countDown;
+}
+
+function displayTime(countDown){
+    var minutesVal = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
+    var secondsVal = Math.floor((countDown % (1000 * 60)) / 1000);
+    var minutesString = minutesVal.toString(); 
+    var secondsString = secondsVal.toString(); 
+    if(minutesString < 2){
+        minutesString = 0+minutesString;
     }
-    seconds.innerHTML =  secondsVal;
+    if(secondsString < 2){
+        secondsString = 0+secondsString;
+    }
+    minutes.innerHTML =  minutesString;
+    seconds.innerHTML =  secondsString;
 }
