@@ -56,10 +56,10 @@ function displayTime(countDown){
     var secondsVal = Math.floor((countDown % (1000 * 60)) / 1000);
     var minutesString = minutesVal.toString(); 
     var secondsString = secondsVal.toString(); 
-    if(minutesString < 2){
+    if(minutesString.length < 2){
         minutesString = 0+minutesString;
     }
-    if(secondsString < 2){
+    if(secondsString.length < 2){
         secondsString = 0+secondsString;
     }
     minutes.innerHTML =  minutesString;
